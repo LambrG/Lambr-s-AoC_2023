@@ -1,7 +1,7 @@
 from file_reader import read_data
 
 raw_data = read_data("2022\input22_04.txt")
-test_data = read_data("2022\\test.txt")
+#test_data = read_data("2022\\test.txt")
 count_part1 = 0
 count_part2 = 0
 for line in raw_data:
