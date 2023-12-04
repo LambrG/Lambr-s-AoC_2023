@@ -4,11 +4,10 @@ import re
 #test_data = read_data("test.txt")
 raw_data = read_data("input23_04.txt")
 total = 0
-total_cards = 0
 card_count = [0 for x in range(len(raw_data))]
 
 for i, line in enumerate(raw_data):
-    
+
     card_count[i] += 1
     winning_numbers = set(re.findall("\d+", line[8:].split("|")[0]))
     scrachted_numbers = set(re.findall("\d+", line[8:].split("|")[1]))
