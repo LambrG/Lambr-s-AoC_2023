@@ -13,7 +13,7 @@ while right < stop:
         j = marker.index(char)
         marker = marker[j+1:]
     marker += char
-    if len(marker) == 14:
+    if len(marker) == 14: # 14 for part 2, 4 for part 1
         break
 
 print(right)
