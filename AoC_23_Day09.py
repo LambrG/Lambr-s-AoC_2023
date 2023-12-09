@@ -5,16 +5,18 @@ def main():
     test_data = read_data("test.txt")
 
     total = 0
+    total_part2 = 0
     step = 0
     for line in raw_data:
         sequence = get_sequence(line)
         prediction = get_prediction(sequence)
-        #print(prediction)
-        #input()
+        sequence.reverse()
+        history = get_prediction(sequence)
         total += prediction
+        total_part2 += history
         step +=1
     print(total)
-    print(step)
+    print(total_part2)
 
 
 def get_sequence(line):
