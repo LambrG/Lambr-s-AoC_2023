@@ -1,6 +1,6 @@
 from file_reader import read_data
 import re
-from math import gcd
+from math import lcm
 
 def main():
     test_data = read_data("test.txt")
@@ -18,7 +18,7 @@ def main():
         step_counts.append(x)
 
     for count in step_counts:
-        total = total*count//gcd(total, count)
+        total = lcm(total, count)
 
     print(find_way(sand_map_dict, instructions))
     print(total)
