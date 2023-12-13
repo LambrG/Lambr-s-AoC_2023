@@ -2,21 +2,30 @@ from file_reader import read_data
 import numpy as np
 
 def find_reflection(mirror):
-    valid = False
-    for i in range(len(mirror)-1):
-        if np.array_equal(mirror[i], mirror[i+1]):
-            valid = is_valid(mirror, i)
-            if valid:
-                break
-    return i+1 if valid else 0
+    for i in range(1, len(mirror)):
+        difference = 0
+        mirror1 = mirror[:i][::-1]
+        mirror2 = mirror[i:]
 
+        # part 1
+        """        
+        if mirror1 == mirror2:
+            return i
+        """
+        # part 2
+        for row1, row2 in zip(mirror1, mirror2):
+            for a, b in zip(row1, row2):
+                if a != b:
+                    difference += 1
+        if difference == 1:
+            return i
+        # part 2 end
+    return 0
 
-def is_valid(mirror, i):
-    mirror1 = mirror[:i+1][::-1]
-    mirror2 = mirror[i+1:]
-    mirror1 = mirror1[:len(mirror2)]
-    mirror2 = mirror2[:len(mirror1)]
-    return mirror1 == mirror2
+def show(mirror):
+    for line in mirror:
+        print("".join(line))
+    print()
 
 
 test_data = read_data("test.txt")
@@ -39,8 +48,7 @@ mirrors.append(mirror)
 for mirror in mirrors:
     row, col = 0, 0
     row = find_reflection(mirror)
-    mirror = np.rot90(mirror, k=-1)
-    mirror = mirror.tolist()
+    mirror = list(zip(*mirror))
     col = find_reflection(mirror)
     total += 100*row + col
 print(total)
