@@ -76,7 +76,7 @@ def eval_range(part_range, next):
             part_range_1[key] = (part_range[key][0], number - 1 if mark == "<" else number)
             part_range_2 = part_range.copy()
             part_range_2[key] = (number if mark == "<" else number + 1, part_range[key][1])
-            queu.appendleft(part_range_1)
+            queu.append(part_range_1)
             queu.append(part_range_2)
             break # and we don't want to continue evaluating
         # we compare upper boundary of range if mark is "<" 
