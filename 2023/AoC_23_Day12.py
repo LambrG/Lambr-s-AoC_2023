@@ -18,7 +18,7 @@ def count_possibilities(pattern, lengths):
     # lets split the pattern for char and the rest
     char, rest = pattern[0], pattern[1:]
 
-    # first check for . - it is simpler, just ignore and continue
+    # first check for . - it is simpler, just ignore and continue checking
     if char == ".":
         return count_possibilities(rest, lengths)
     
