@@ -26,3 +26,4 @@ for line in platform:
             continue
 
 print(total)
+
